@@ -1,4 +1,5 @@
 // routes/auth.js
+console.log('auth.js loaded');
 
 const express = require('express');
 const router = express.Router();
@@ -82,6 +83,10 @@ router.post('/signup', async (req, res) => {
 
   } catch (err) {
     console.error('Signup error:', err);
+    // In development, send more detailed error information
+    if (process.env.NODE_ENV === 'development') {
+      return res.status(500).json({ message: 'Server error', error: err.message });
+    }
     return res.status(500).json({ message: 'Server error' });
   }
 });

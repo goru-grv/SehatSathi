@@ -1,8 +1,3 @@
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public')); // Serve static files from 'public' directory
-// 
-// module.exports = router;
 document.addEventListener('DOMContentLoaded', () => {
   const loginFormElement = document.querySelector('#login-form form');
   const signupFormElement = document.querySelector('#signup-form form');
@@ -113,8 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
           // If not redirected but still OK, it's an unexpected success, redirect to login
           window.location.href = '/login.html';
         } else {
-          const data = await res.json(); // Only parse JSON if not redirected and not OK
-          displayErrorMessage(signupErrorMessage, data.message || 'Signup failed: Unknown error');
+          const data = await res.json();
+          // Display specific error message if available, otherwise fallback to generic messages
+          displayErrorMessage(signupErrorMessage, data.error || data.message || 'Signup failed: Unknown error');
         }
       } catch (err) {
         console.error(`Signup error: ${err}`);
