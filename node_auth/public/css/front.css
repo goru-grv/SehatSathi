@@ -1,0 +1,145 @@
+ body {
+            font-family: 'Inter', sans-serif;
+            background-color: #b8f1f8; /* Light blue background for a fresh feel */
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(150deg, #2196f3 6%, #4caf50 100%); /* Brighter blue-green gradient */
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-bg::before {
+            /* content: ''; Uncommented for subtle pattern */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        .bg-card {
+            background-color: #b8f1f8; /* White background for cards */
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(33, 150, 243, 0.2); /* Softer, more prominent shadow */
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2196f3; /* Blue background for the button */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: visible;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-to-top:hover {
+            background-color: #1976d2; /* Darker blue on hover */
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .logo {
+            width: 60px; /* Slightly smaller logo */
+            height: auto;
+            margin-top: 10px; /* Move logo 10px down from top */
+            margin-left:-25px;
+        }
+         /* Keyframe animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-600 { animation-delay: 0.6s; }
+        .animation-delay-800 { animation-delay: 0.8s; }
+
+        /* Navigation link hover effect */
+        .nav-link-hover {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #2196f3; /* Blue underline */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link-hover:hover::after {
+            width: 100%;
+            left: 0;
+            background: #2196f3;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-hidden {
+            display: none;
+            background-color: #ffffff;
+        }
+
+        .contact-us-button {
+            width: 150px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* .header{
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        } */

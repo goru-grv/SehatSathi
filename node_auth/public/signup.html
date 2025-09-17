@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(150deg, #2196f3 6%, #4caf50 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blue-200 p-8 rounded-2xl shadow-xl w-full max-w-sm">
+    <div id="signup-form">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up</h2>
+      <!-- Changed action to backend route, removed link wrapping the button -->
+      <form action="/api/signup" method="POST">
+        <div id="signup-error-message" class="text-red-500 text-sm text-center mb-4 hidden"></div>
+        <div class="mb-4">
+          <label for="signup-name" class="block text-gray-700 font-medium mb-2">Name</label>
+          <input type="text" id="signup-name" name="name"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                 placeholder="Enter name" required>
+        </div>
+        <div class="mb-4">
+          <label for="signup-email" class="block text-gray-700 font-medium mb-2">Email</label>
+          <input type="email" id="signup-email" name="email"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                 placeholder="Enter email" required>
+        </div>
+        <div class="mb-4 relative">
+          <label for="signup-password" class="block text-gray-700 font-medium mb-2">Password</label>
+          <input type="password" id="signup-password" name="password"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors pr-10"
+                 placeholder="Enter password" required>
+          <button type="button" id="toggle-signup-password-visibility"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 mt-6"
+                  title="Toggle password visibility">
+            <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path id="signup-eye-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path id="signup-eye-closed" class="hidden" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13.875 18.825A10.05 10.05 0 0112 19c-4.418 0-7.862-2.483-9.362-5.825M12 3c4.418 0 7.862 2.483 9.362 5.825M17.5 12a5.5 5.5 0 01-11 0"/>
+            </svg>
+          </button>
+        </div>
+        <button type="submit" id="signup-button"
+                class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md">
+          Sign Up
+        </button>
+      </form>
+      <div class="mt-6 text-center text-sm text-gray-500">
+        Already have an account? <a href="login.html" id="show-login" class="text-blue-600 font-medium hover:underline">Log in here</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adjust src to correct JS path using forward slashes -->
+  <script src="js/login.js" defer></script>
+</body>
+</html>
